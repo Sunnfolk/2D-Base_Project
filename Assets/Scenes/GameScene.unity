@@ -203,9 +203,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0010570824
+    x: 0
     y: 0
-    width: 0.9978858
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -385,6 +385,10 @@ PrefabInstance:
     - target: {fileID: 6504279271008875627, guid: d2dc56a42af7d8d469ae51d58b5b2b7f, type: 3}
       propertyPath: m_Name
       value: Debug.Tester
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504279271008875636, guid: d2dc56a42af7d8d469ae51d58b5b2b7f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6504279271008875637, guid: d2dc56a42af7d8d469ae51d58b5b2b7f, type: 3}
       propertyPath: m_RootOrder

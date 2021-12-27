@@ -1,97 +1,100 @@
-using System;
-using System.Reflection;
 using UnityEngine;
 
-public class DebugGUI : MonoBehaviour
+namespace Debug
 {
-    public static DebugGUI Instance { get; private set; }
-
-
-    private float baseTopoffset;
-    private float baseBottomOffset;
-    private float baseLeftOffset;
-    private float baseRightOffset;
-
-    private float baseHeight;
-    private float baseWidth;
-    
-    private void Awake()
+    public class DebugGUI : MonoBehaviour
     {
-        if (Instance == null)
+        private static DebugGUI Instance { get; set; }
+
+
+        private float _baseTopOffset;
+        private float _baseBottomOffset;
+        private float _baseLeftOffset;
+        private float _baseRightOffset;
+
+        private float _baseHeight;
+        private float _baseWidth;
+    
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                //DontDestroyOnLoad(gameObject);
+            }
         }
-    }
 
-    #region Top Right
+        #region Top Right
+
+        protected void RightTopText(float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Right Label Text")
+        {
+            GUI.Label(new Rect(20,10+topOffset, width, height), text);
+        }
+
+        protected void RightTopBox(float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Right Box Text")
+        {
+            GUI.Box(new Rect(20,10+topOffset, width, height), text);
+        }
     
-    public void RightTopText(float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Right Label Text")
-    {
-        GUI.Label(new Rect(20,10+topOffset, width, height), text);
-    }
-    public void RightTopBox(float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Right Box Text")
-    {
-        GUI.Box(new Rect(20,10+topOffset, width, height), text);
-    }
-    
-    #endregion
+        #endregion
 
-    #region Top Left
+        #region Top Left
     
-    public void LeftTopText(float leftOffset = 0f, float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Left Label Text")
-    {
-        GUI.Label(new Rect(Screen.width-50-leftOffset,10+topOffset, width, height), text);
-    }
-    public void LeftTopBox(float leftOffset = 0f, float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Left Label Text")
-    {
-        GUI.Label(new Rect(Screen.width-50-leftOffset,10+topOffset, width, height), text);
-    }
+        public void LeftTopText(float leftOffset = 0f, float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Left Label Text")
+        {
+            GUI.Label(new Rect(Screen.width-50-leftOffset,10+topOffset, width, height), text);
+        }
+        public void LeftTopBox(float leftOffset = 0f, float topOffset = 0f, float width = 80f, float height = 25f, string text = "Top Left Label Text")
+        {
+            GUI.Label(new Rect(Screen.width-50-leftOffset,10+topOffset, width, height), text);
+        }
     
 
-    #endregion
+        #endregion
 
-    #region Bottom Right
+        #region Bottom Right
     
-    public void RightBottomText(float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Label Text")
-    {
-        GUI.Label(new Rect(20,Screen.height-30-bottomOffset, width, height), text);
-    }
-    public void RightBottomBox(float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Box Text")
-    {
-        GUI.Box(new Rect(20,Screen.height-30-bottomOffset, width, height), text);
-    }
+        public void RightBottomText(float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Label Text")
+        {
+            GUI.Label(new Rect(20,Screen.height-30-bottomOffset, width, height), text);
+        }
+        public void RightBottomBox(float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Box Text")
+        {
+            GUI.Box(new Rect(20,Screen.height-30-bottomOffset, width, height), text);
+        }
 
-    public void RightBottomBox(float bottomOffset = 0f, string text = "Bottom Right Box Text")
-    {
-        GUI.Box(new Rect(20, Screen.height - 30 - bottomOffset, 80, 25f), text);
-    }
-    public void RightBottomBox(string text = "Bottom Right Box Text")
-    {
-        GUI.Box(new Rect(20, Screen.height - 30 , 80, 25f), text);
-    }
+        public void RightBottomBox(float bottomOffset = 0f, string text = "Bottom Right Box Text")
+        {
+            GUI.Box(new Rect(20, Screen.height - 30 - bottomOffset, 80, 25f), text);
+        }
 
-    #endregion
+        protected void RightBottomBox(string text = "Bottom Right Box Text")
+        {
+            GUI.Box(new Rect(20, Screen.height - 30 , 80, 25f), text);
+        }
 
-    #region Bottom Left
+        #endregion
 
-    public void LeftBottomText(float leftOffset = 0f, float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Label Text")
-    {
-        GUI.Label(new Rect(Screen.width-50-leftOffset,Screen.height-30-bottomOffset, width, height), text);
-    }
-    public void LeftBottomBox(float leftOffset = 0f, float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Box Text")
-    {
-        GUI.Box(new Rect(Screen.width-50-leftOffset,Screen.height-30-bottomOffset, width, height), text);
-    }
+        #region Bottom Left
 
-    public void LeftBottomBox(float leftOffset = 0f, float bottomOffset = 0f, string text = "Bottom Right Box Text")
-    {
-        GUI.Box(new Rect(Screen.width-50-leftOffset, Screen.height - 30 - bottomOffset, 80, 25f), text);
-    }
-    public void LeftBottomBox(string text = "Bottom Right Box Text")
-    {
-        GUI.Box(new Rect(Screen.width-50, Screen.height - 30 , 80, 25f), text);
-    }
-    #endregion
+        public void LeftBottomText(float leftOffset = 0f, float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Label Text")
+        {
+            GUI.Label(new Rect(Screen.width-50-leftOffset,Screen.height-30-bottomOffset, width, height), text);
+        }
+        public void LeftBottomBox(float leftOffset = 0f, float bottomOffset = 0f, float width = 80f, float height = 25f, string text = "Bottom Right Box Text")
+        {
+            GUI.Box(new Rect(Screen.width-50-leftOffset,Screen.height-30-bottomOffset, width, height), text);
+        }
+
+        public void LeftBottomBox(float leftOffset = 0f, float bottomOffset = 0f, string text = "Bottom Right Box Text")
+        {
+            GUI.Box(new Rect(Screen.width-50-leftOffset, Screen.height - 30 - bottomOffset, 80, 25f), text);
+        }
+        public void LeftBottomBox(string text = "Bottom Right Box Text")
+        {
+            GUI.Box(new Rect(Screen.width-50, Screen.height - 30 , 80, 25f), text);
+        }
+        #endregion
    
+    }
 }
