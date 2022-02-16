@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.nullkal.unisense": {
+      "version": "https://github.com/nullkal/UniSense.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.inputsystem": "1.0.1"
+      },
+      "hash": "fdc6a0a13142b8614592eb8424acdecf1e170048"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.3",
       "depth": 1,
@@ -86,7 +95,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.6.0",
+      "version": "1.6.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -125,7 +134,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.2.0",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -141,7 +150,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "12.1.3",
+      "version": "12.1.4",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -151,14 +160,14 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "12.1.3",
+      "version": "12.1.4",
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.5.0",
-        "com.unity.render-pipelines.core": "12.1.3",
-        "com.unity.shadergraph": "12.1.3"
+        "com.unity.render-pipelines.core": "12.1.4",
+        "com.unity.shadergraph": "12.1.4"
       }
     },
     "com.unity.searcher": {
@@ -169,11 +178,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
-      "version": "12.1.3",
+      "version": "12.1.4",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
-        "com.unity.render-pipelines.core": "12.1.3",
+        "com.unity.render-pipelines.core": "12.1.4",
         "com.unity.searcher": "4.9.1"
       }
     },
