@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Debug
 {
     [ExecuteInEditMode]
     public class DebugOnScreen : DebugGUI
     {
-        public float Score = 0f;
-        public float Health = 100f;
+        public float score = 0f;
+        public float health = 100f;
     
-        private float Velocity = 0f;
+        private float _velocity = 0f;
 
         private RectOffset _rectOff;
 
@@ -17,10 +18,10 @@ namespace Debug
             // GUI.skin.box.wordWrap = true;
             _rectOff = GUI.skin.box.overflow;
 
-            RightTopBox(0f, 80, 25, $"Health: {Health}");
-            RightTopText(25f, 80, 25, $"Score:{Score} ");
+            RightTopBox(0f, 80, 25, $"Health: {health}");
+            RightTopText(25f, 80, 25, $"Score:{score} ");
         
-            RightBottomBox($"Velocity: {Velocity}" );
+            RightBottomBox($"Velocity: {_velocity}" );
         }
     }
 }
